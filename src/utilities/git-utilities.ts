@@ -138,16 +138,40 @@ export const commitAndPushChange = async() : Promise<Boolean> => {
         console.log('Add Changes Succesfully...');
 
         console.log('Commit Changes...');
-        await git.commit(`Update README.md with today's date`);
+        await git.cwd(repositoryPath).commit(`Update README.md with today's date`);
         console.log('Commit Changes Successfully');
 
         console.log('Push Changes...');
-        await git.push('origin', 'main');
+        await git.cwd(repositoryPath).push('origin', 'main');
         console.log('Push Changes Successfully...');
 
         return true;
     }catch(error)
     {
         return false;
+    }
+};
+
+export const stashChanges = async (message?: string): Promise<void> => {
+    try {
+        if(
+            !process.env.GITHUB_USERNAME || 
+            !process.env.REPO_NAME
+        )
+        {
+            throw Error('Gihub Username or Repository Name Environment Empty');
+        }
+
+        const repositoryPath = path.join('repositories', process.env.GITHUB_USERNAME , process.env.REPO_NAME);
+        if (message) {
+            
+            await git.cwd(repositoryPath).stash(['push', '-m', message]);
+            console.log(`Stashed with message: "${message}"`);
+        } else {
+            await git.cwd(repositoryPath).stash();
+            console.log('Stashed without message');
+        }
+    } catch (error) {
+        console.error('Failed to stash changes:', error);
     }
 };
