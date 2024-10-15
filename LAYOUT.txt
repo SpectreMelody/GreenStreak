@@ -1,3 +1,0 @@
-# GreenStreakLogs
-
-Green Streak Logs Last Commit Activities ${date}

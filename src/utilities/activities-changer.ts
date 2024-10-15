@@ -45,15 +45,8 @@ const extractDateFromReadme = async (readmeContent: string, layoutTemplate: stri
     return null;
 }
 
-export const writeReadme = async () : Promise<Boolean> => {
+export const writeReadme = async (date : string) : Promise<Boolean> => {
     try{
-        const date : string = dayjs().format('YYYY-MM-DD');
-        if(await getDate() === date)
-        {
-            console.log('Doesnt need to rewrite readme');
-            return true;
-        }
-
         if(!process.env.GITHUB_USERNAME || !process.env.REPO_NAME)
         {
             throw Error('Gihub Username or Repository Name Environment Empty');
