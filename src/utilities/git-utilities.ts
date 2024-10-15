@@ -29,16 +29,6 @@ export const checkRepositoryExists = async () : Promise<Boolean> => {
 
 export const createRepository = async () : Promise<IRepository> => {
     try{
-        if(await checkRepositoryExists())
-        {
-            let data : IRepository = {
-                status : 200,
-                message : 'Repository Exists'
-            };
-    
-            return data;
-        }
-
         console.log('Creating Repository...');
 
         await axios.post(
@@ -80,8 +70,6 @@ export const cloneRepository = async() : Promise<Boolean> => {
         {
            throw Error('Gihub Username or Repository Name Environment Empty');
         }
-
-        await createRepository();
 
         const repositoryPath = path.join('repositories', process.env.GITHUB_USERNAME , process.env.REPO_NAME);
         
