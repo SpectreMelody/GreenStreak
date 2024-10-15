@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  GreenStreak:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: GreenStreak
+    restart: always

@@ -1,3 +1,34 @@
-# GreenStreakLogs
+# Green Streak Logs 🚀
 
-Green Streak Logs Last Commit Activities ${date}
+![Green Streak Logo](https://i.imgur.com/X7Nkbtt.jpeg) <!-- You can replace this URL with an actual image URL -->
+
+---
+
+## 🗓️ Last Commit Activity:
+
+**Date**: ${date}
+
+---
+
+### Project Overview
+
+This repository keeps track of your GitHub activity streak! Every day, the README is updated with the latest commit timestamp, helping you stay on track and maintain that **green streak** on your profile.
+
+---
+
+### How It Works:
+
+1. **Daily Updates**: The README file is automatically updated with the current date every day.
+2. **Streak Tracking**: Watch your GitHub contributions go green as your streak grows!
+3. **Auto Commit**: The process is automated, so you don’t need to worry about manual commits.
+
+---
+
+### Why Keep a Streak?
+
+Maintaining a streak is a fun and motivational way to stay productive. By committing regularly, you:
+- 💡 Stay in the flow of coding
+- 🏆 Track your daily progress
+- 🌱 Build a habit of consistency
+
+---

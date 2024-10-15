@@ -1,5 +1,4 @@
 import fs from 'fs';
-import dayjs from 'dayjs';
 import path from 'path';
 import dotenv from "dotenv";
 dotenv.config();
