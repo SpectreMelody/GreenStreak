@@ -157,6 +157,6 @@ We appreciate your interest in GreenStreak! Our mission is to help you maintain 
 
 ### Stay Connected
 - ⭐ **Star this repository** if you find it helpful!
-- 🐛 **Report issues** or **suggest features** in the [issues section](https://github.com/your-username/GreenStreak/issues).
+- 🐛 **Report issues** or **suggest features** in the [issues section](https://github.com/SpectreMelody/GreenStreak/issues).
 
 Happy coding, and keep that streak alive! 🚀
