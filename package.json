@@ -12,6 +12,7 @@
   "author": "SpectreMelody",
   "license": "ISC",
   "dependencies": {
+    "dayjs": "^1.11.13",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "fs-extra": "^11.2.0",
