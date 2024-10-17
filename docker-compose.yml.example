@@ -5,5 +5,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: GreenStreak
+    container_name: greenstreak
     restart: always
