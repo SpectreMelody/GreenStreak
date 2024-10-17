@@ -118,7 +118,7 @@ Enhance the style of your README logs by customizing the `LAYOUT.txt` file! You 
    **Important**: Be sure to retain the `${date}` placeholder in your layout. This dynamic element is essential for automatically inserting the current date into your logs, ensuring that your activity streak is always accurately reflected.
 
 8. **Run GreenStreak Manually**   
-running the following command:
+running the following command:   
 *Production*
 ```bash
 npm run build && npm run start:prod
