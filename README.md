@@ -104,7 +104,7 @@ cp .env.example .env
 ```
 
 4. **Fill in the .env file**   
-Fill in `*GITHUB_TOKEN*` with `**🔐 GitHub Personal Access Token**` and `*GITHUB_USERNAME*` with `**Your Github Username**`.
+Fill in `GITHUB_TOKEN` with `🔐 GitHub Personal Access Token` and `GITHUB_USERNAME` with `Your Github Username`.
 
 5. **Copy the example LAYOUT file**   
 running the following command:
