@@ -99,9 +99,17 @@ export const pullRepository = async() : Promise<Boolean> => {
             await cloneRepository();
         }
 
-        console.log('Pull Repository...');
-        await git.cwd(repositoryPath).pull();
-        console.log('Pull Repository Successfully...');
+        const token = process.env.GITHUB_TOKEN;
+        const username = process.env.GITHUB_USERNAME;
+        const repoName = process.env.REPO_NAME;
+        const remote = `https://${username}:${token}@github.com/${username}/${repoName}.git`;
+
+        console.log('Setting remote URL...');
+        await git.cwd(repositoryPath).remote(['set-url', 'origin', remote]);
+
+        console.log('Pulling repository...');
+        await git.cwd(repositoryPath).pull('origin', 'main');
+        console.log('Repository pulled successfully');
 
         return true;
     }catch(error)
