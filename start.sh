@@ -7,6 +7,7 @@ echo "Please enter your GitHub token:"
 read GITHUB_TOKEN
 
 cp .env.example .env
+cp LAYOUT.txt.example LAYOUT.txt
 
 sed -i "s/^GITHUB_USERNAME=.*/GITHUB_USERNAME=$GITHUB_USERNAME/" .env
 sed -i "s/^GITHUB_TOKEN=.*/GITHUB_TOKEN=$GITHUB_TOKEN/" .env
