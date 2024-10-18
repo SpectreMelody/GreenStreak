@@ -5,5 +5,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    platform: linux/amd64
     container_name: greenstreak
+    image: greenstreak
     restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 24M
