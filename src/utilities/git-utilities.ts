@@ -60,6 +60,8 @@ export const createRepository = async () : Promise<IRepository> => {
             message : String(error)
         };
 
+        console.log(`Failed Create Repository :: ${error}`)
+
         return data;
     }
 };
@@ -75,13 +77,19 @@ export const cloneRepository = async() : Promise<Boolean> => {
         
         if(!fs.existsSync(repositoryPath))
         {
+            const token = process.env.GITHUB_TOKEN;
+            const username = process.env.GITHUB_USERNAME;
+            const repoName = process.env.REPO_NAME;
+            const remote = `https://${username}:${token}@github.com/${username}/${repoName}.git`;
+
             console.log('Cloning repository...');
-            await git.clone(`https://github.com/${process.env.GITHUB_USERNAME}/${process.env.REPO_NAME}.git`, repositoryPath);
+            await git.clone(remote, repositoryPath);
             console.log('Repository Cloned Successfully...');
         }
 
         return true;
-    }catch(error){        
+    }catch(error){    
+        console.log(`Failed Clone Repository :: ${error}`)    
         return false;
     }
 }
@@ -114,6 +122,7 @@ export const pullRepository = async() : Promise<Boolean> => {
         return true;
     }catch(error)
     {
+        console.log(`Failed Pulling Repository :: ${error}`)
         return false;
     }
 }
@@ -144,6 +153,7 @@ export const commitAndPushChange = async() : Promise<Boolean> => {
         return true;
     }catch(error)
     {
+        console.log(`Failed Commit and Push :: ${error}`)
         return false;
     }
 };
@@ -168,6 +178,6 @@ export const stashChanges = async (message?: string): Promise<void> => {
             console.log('Stashed without message');
         }
     } catch (error) {
-        console.error('Failed to stash changes:', error);
+        console.log(`Failed to Stash Changes :: ${error}`)
     }
 };

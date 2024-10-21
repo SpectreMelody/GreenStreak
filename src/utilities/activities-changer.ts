@@ -5,7 +5,6 @@ dotenv.config();
 
 export const getDate = async () : Promise<string|null> => {
     try{
-
         if(!process.env.GITHUB_USERNAME || !process.env.REPO_NAME)
         {
             throw Error('Gihub Username or Repository Name Environment Empty');

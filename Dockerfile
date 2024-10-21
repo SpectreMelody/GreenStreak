@@ -18,4 +18,4 @@ RUN chmod 0644 /etc/cron.d/greenstreak
 
 RUN crontab /etc/cron.d/greenstreak
 
-CMD cron -f && tail -f cron.log
+CMD npm run start:prod && cron -f && tail -f cron.log
