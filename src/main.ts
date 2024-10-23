@@ -13,9 +13,9 @@ import { checkRepositoryExists, cloneRepository, commitAndPushChange, createRepo
         {
             await createRepository();
             await cloneRepository();
+            await setGlobalConfig();
         }
         
-        await setGlobalConfig();
         await stashChanges();
         await pullRepository();
         await writeReadme(currentDate);
