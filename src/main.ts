@@ -1,6 +1,6 @@
 import { getDate, writeReadme } from "./utilities/activities-changer";
 import dayjs from 'dayjs';
-import { checkRepositoryExists, cloneRepository, commitAndPushChange, createRepository, pullRepository, stashChanges } from "./utilities/git-utilities";
+import { checkRepositoryExists, cloneRepository, commitAndPushChange, createRepository, pullRepository, setGlobalConfig, stashChanges } from "./utilities/git-utilities";
 
 ( async() => {
     const date = await getDate();
@@ -14,7 +14,8 @@ import { checkRepositoryExists, cloneRepository, commitAndPushChange, createRepo
             await createRepository();
             await cloneRepository();
         }
-
+        
+        await setGlobalConfig();
         await stashChanges();
         await pullRepository();
         await writeReadme(currentDate);

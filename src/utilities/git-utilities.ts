@@ -4,9 +4,41 @@ import path from 'path';
 import fs from 'fs';
 import { IRepository } from "../interfaces/irepository";
 import simpleGit from 'simple-git';
+import { exec } from "child_process";
 
 dotenv.config();
 const git = simpleGit();
+
+export const setGlobalConfig = async() : Promise<Boolean> => {
+    try{
+        const GITHUB_USERNAME = process.env.GITHUB_USERNAME ?? '';
+        const GITHUB_EMAIL = process.env.GITHUB_EMAIL ?? '';
+
+        console.log('Set Global Config');
+
+        exec(`git config --global user.name "${GITHUB_USERNAME}"`, (err : any) => {
+            if (err) {
+                console.error(`Error setting git user.name: ${err.message}`);
+                return;
+            }
+            console.log(`Git user.name set to: ${GITHUB_USERNAME}`);
+        });
+    
+        exec(`git config --global user.email "${GITHUB_EMAIL}"`, (err : any) => {
+            if (err) {
+                console.error(`Error setting git user.email: ${err.message}`);
+                return;
+            }
+            console.log(`Git user.email set to: ${GITHUB_EMAIL}`);
+        });
+        console.log('Set Global Config Successfully...')
+
+        return true;
+    }catch(error)
+    {
+        return false;
+    }
+};
 
 export const checkRepositoryExists = async () : Promise<Boolean> => {
     try{
